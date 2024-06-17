@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  background: rgb(153, 28, 107);
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.content-wrap {
+  font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    width: 50%;
+  }
+
+  button {
+    padding: 5px;
+    border-radius: 10px;
+  }
+}
