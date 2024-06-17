@@ -421,7 +421,40 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, `body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  background: rgb(153, 28, 107);
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.content-wrap {
+  font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    width: 50%;
+  }
+
+  button {
+    padding: 5px;
+    border-radius: 10px;
+  }
+}
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"AAAA;EACE,yCAAyC;EACzC,aAAa;EACb,6BAA6B;;EAE7B,aAAa;EACb,2BAA2B;EAC3B,qBAAqB;EACrB,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,iBAAiB;;EAEjB,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,SAAS;;EAET;IACE,UAAU;EACZ;;EAEA;IACE,YAAY;IACZ,mBAAmB;EACrB;AACF","sourcesContent":["body {\n  font-family: Arial, Helvetica, sans-serif;\n  height: 100vh;\n  background: rgb(153, 28, 107);\n\n  display: grid;\n  grid-template-rows: 1fr 1fr;\n  justify-items: center;\n  align-items: center;\n  text-align: center;\n}\n\nh1 {\n  font-size: 4rem;\n}\n\n.content-wrap {\n  font-size: 1.5rem;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 20px;\n\n  p {\n    width: 50%;\n  }\n\n  button {\n    padding: 5px;\n    border-radius: 10px;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
