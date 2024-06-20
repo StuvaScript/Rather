@@ -1046,53 +1046,74 @@ function generateRandomNumbers(minHeight, maxHeight, minWidth, maxWidth) {
 
   return { height, width };
 }
-//todo NEED TO ADD THE CODE BELOW TO A WINDOW.ONCHANGE LISTENER
-//todo **********************************************************
 
-//* **`` This gets our button's position from the left and from the top of the window.
-const rect = buttonOne.getBoundingClientRect();
-const buttonFromLeftScreen = rect.x;
-const buttonFromTopScreen = rect.y;
-// console.log({ buttonFromLeftScreen });
-// console.log({ buttonFromTopScreen });
+const initialSizes = getSizes();
+moveButton(initialSizes);
 
-//* **`` This gets our button's computed width and height.
-const buttonHeight = buttonOne.offsetHeight;
-const buttonWidth = buttonOne.offsetWidth;
-//   console.log({ buttonHeight });
-// console.log({ buttonWidth });
+window.addEventListener('resize', () => {
+  console.log('Yooooo!!');
 
-//* **`` This gets our screen height and width.
-const screenHeight = screen.height;
-const screenWidth = screen.width;
-//   console.log({ screenHeight });
-// console.log({ screenWidth });
+  const newSizes = getSizes();
+  moveButton(newSizes);
+});
 
-//* **`` These are the computed values that tell us how much room we can let our button move.
-const availableRoomToMoveLeft = buttonFromLeftScreen * -1;
-// console.log({ availableRoomToMoveLeft });
-const availableRoomToMoveUp = buttonFromTopScreen * -1;
-// console.log({ availableRoomToMoveUp });
-const availableRoomToMoveRight =
-  screenWidth - (buttonFromLeftScreen + buttonWidth);
-// console.log({ availableRoomToMoveRight });
-const availableRoomToMoveDown =
-  screenHeight - (buttonFromTopScreen + buttonHeight);
-// console.log({ availableRoomToMoveDown });
+function moveButton(sizes) {
+  buttonOne.addEventListener('click', () => {
+    const { height, width } = generateRandomNumbers(
+      sizes.availableRoomToMoveDown,
+      sizes.availableRoomToMoveUp,
+      sizes.availableRoomToMoveRight,
+      sizes.availableRoomToMoveLeft,
+    );
 
-//todo **********************************************************
+    buttonOne.style.transform = `translate(${width}px, ${height}px)`;
+    buttonOne.style.transition = '200ms ease-out';
+  });
+}
 
-buttonOne.addEventListener('click', () => {
-  const { height, width } = generateRandomNumbers(
-    availableRoomToMoveUp,
+function getSizes() {
+  //todo NEED TO ADD THE CODE BELOW TO A WINDOW.ONCHANGE LISTENER
+  //todo **********************************************************
+
+  //* **`` This gets our button's position from the left and from the top of the window.
+  const rect = buttonOne.getBoundingClientRect();
+  const buttonFromLeftScreen = rect.x;
+  const buttonFromTopScreen = rect.y;
+  // console.log({ buttonFromLeftScreen });
+  // console.log({ buttonFromTopScreen });
+
+  //* **`` This gets our button's computed width and height.
+  const buttonHeight = buttonOne.offsetHeight;
+  const buttonWidth = buttonOne.offsetWidth;
+  //   console.log({ buttonHeight });
+  // console.log({ buttonWidth });
+
+  //* **`` This gets our screen height and width.
+  const screenHeight = screen.height;
+  const screenWidth = screen.width;
+  //   console.log({ screenHeight });
+  // console.log({ screenWidth });
+
+  //* **`` These are the computed values that tell us how much room we can let our button move.
+  const availableRoomToMoveLeft = buttonFromLeftScreen * -1;
+  // console.log({ availableRoomToMoveLeft });
+  const availableRoomToMoveUp = buttonFromTopScreen * -1;
+  // console.log({ availableRoomToMoveUp });
+  const availableRoomToMoveRight =
+    screenWidth - (buttonFromLeftScreen + buttonWidth);
+  // console.log({ availableRoomToMoveRight });
+  const availableRoomToMoveDown =
+    screenHeight - (buttonFromTopScreen + buttonHeight);
+  // console.log({ availableRoomToMoveDown });
+
+  //todo **********************************************************
+  return {
     availableRoomToMoveDown,
     availableRoomToMoveLeft,
     availableRoomToMoveRight,
-  );
-
-  buttonOne.style.transform = `translate(${width}px, ${height}px)`;
-  buttonOne.style.transition = '200ms ease-out';
-});
+    availableRoomToMoveUp,
+  };
+}
 
 /******/ })()
 ;
